@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>CivicFront</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+  <link rel="stylesheet" href="./style.css"/>
+  <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  <!-- Page level plugin CSS-->
+  <link href="vendor/datatables/dataTables.bootstrap4.css" rel="stylesheet">
+  <!-- Custom styles for this template-->
+  <link href="css/sb-admin.css" rel="stylesheet">
+</head>
+<body class="text-center ">
+    <div class="content-div" >
+    <div class="index-container">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="./index.html">Civic Hackers</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarText">
+            <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Sobre</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Histórico</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Contato</a>
+            </li>
+            </ul>
+        </div>
+    </nav>
+    <section class="insight-section">
+        
+        <div class="card-header">
+        
+            <i class="fa fa-table"></i> Insights Coletados
+            <div class="row comparisson">
+                    <div class="col-sm-12">
+                        
+                        <div class="card">
+                        <div class="card-body">
+                            <p class="card-text" style="text-align: left">
+                            </p>
+                            <a href="./compare.html" class="btn btn-primary">Comparar com Proposta</a>
+                            <a href="./market.html" class="btn btn-primary">Validar Preços</a>
+                        </div>
+                        </div>
+                    </div>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                <tr>
+                    <th>Tipo</th>
+                    <th>Classificação</th>
+                    <th>Descrição</th>
+                </tr>
+                </thead>
+                <tfoot>
+                <tr>
+                    <th>Tipo</th>
+                    <th>Classificação</th>
+                    <th>Descrição</th>
+                </tr>
+                </tfoot>
+                <tbody>
+                <tr>
+                    <td>Palavra-Chave</td>
+                    <td>Item</td>
+                    <td>Bota preta de cano curto</td>
+                </tr>
+                <tr>
+                    <td>Categoria</td>
+                    <td>Organização</td>
+                    <td>Guarda-Civil Metropolitana</td>
+                </tr>
+                <tr>
+                    <td>Palavra-Chave</td>
+                    <td>Organização</td>
+                    <td>Guarda-Civil</td>
+                </tr>
+                <tr>
+                    <td>Entidade</td>
+                    <td>Organização</td>
+                    <td>CAUFESP</td>
+                </tr>
+                <tr>
+                    <td>Categoria</td>
+                    <td>Item</td>
+                    <td>Home and Garden</td>
+                </tr> 
+            </div>
+        </div>
+    </section>  
+
+    <script src="./jquery-3.3.1.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4"
+      crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1"
+      crossorigin="anonymous"></script>  
+      <script src="vendor/jquery/jquery.min.js"></script>
+      <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+      <!-- Core plugin JavaScript-->
+      <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+      <!-- Page level plugin JavaScript-->
+      <script src="vendor/datatables/jquery.dataTables.js"></script>
+      <script src="vendor/datatables/dataTables.bootstrap4.js"></script>
+      <!-- Custom scripts for all pages-->
+      <script src="js/sb-admin.min.js"></script>
+      <!-- Custom scripts for this page-->
+      <script src="js/sb-admin-datatables.min.js"></script>
+      <script>
+        $( "#onUpload" ).on( "click", function() {
+          $.post( "ajax/test.html", function( data ) {
+            $( ".result" ).html( data );
+          });
+        });
+      </script>
+      </div>
+      </div>
+  </body>
+  </html>
