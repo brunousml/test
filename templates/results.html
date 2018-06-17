@@ -14,6 +14,7 @@
   <link href="static/css/sb-admin.css" rel="stylesheet">
 </head>
 <body class="text-center ">
+
     <div class="content-div" >
     <div class="index-container">
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -24,17 +25,17 @@
         <div class="collapse navbar-collapse" id="navbarText">
             <ul class="navbar-nav mr-auto">
             <li class="nav-item ">
-                <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item active">
-                <a class="nav-link" href="results.html">Insights</a>
+                <a class="nav-link" href="/results">Insights</a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="compare.html">Template</a>
+            <li class="nav-item ">
+                <a class="nav-link" href="/compare">Template</a>
             </li>
 
-            <li class="nav-item">
-                <a class="nav-link" href="market.html">Preços</a>
+            <li class="nav-item ">
+                <a class="nav-link" href="/market">Preços</a>
             </li>
             </ul>
         </div>
@@ -51,8 +52,8 @@
                         <div class="card-body">
                             <p class="card-text" style="text-align: left">
                             </p>
-                            <a href="./compare.html" class="btn btn-primary">Comparar com Proposta</a>
-                            <a href="./market.html" class="btn btn-primary">Validar Preços</a>
+                            <a href="/compare" class="btn btn-primary">Comparar com Proposta</a>
+                            <a href="/market" class="btn btn-primary">Validar Preços</a>
                         </div>
                         </div>
                     </div>
@@ -63,43 +64,53 @@
                 <thead>
                 <tr>
                     <th>Tipo</th>
-                    <th>Classificação</th>
+                    <th>Acuracidade</th>
                     <th>Descrição</th>
                 </tr>
                 </thead>
-                <tfoot>
-                <tr>
-                    <th>Tipo</th>
-                    <th>Classificação</th>
-                    <th>Descrição</th>
-                </tr>
-                </tfoot>
+                <!--<tfoot>-->
+                <!--<tr>-->
+                    <!--<th>Tipo</th>-->
+                    <!--<th>Acuracidade</th>-->
+                    <!--<th>Descrição</th>-->
+                <!--</tr>-->
+                <!--</tfoot>-->
                 <tbody>
                 <tr>
-                    <td>Palavra-Chave</td>
-                    <td>Item</td>
-                    <td>Bota preta de cano curto</td>
+                    <td>Entidade</td>
+                    <td>{{ result['entities'][0]['relevance'] }}</td>
+                    <td>{{ result['entities'][0]['text'] }}</td>
                 </tr>
-                <tr>
-                    <td>Categoria</td>
-                    <td>Organização</td>
-                    <td>Guarda-Civil Metropolitana</td>
-                </tr>
-                <tr>
-                    <td>Palavra-Chave</td>
-                    <td>Organização</td>
-                    <td>Guarda-Civil</td>
-                </tr>
+
                 <tr>
                     <td>Entidade</td>
-                    <td>Organização</td>
-                    <td>CAUFESP</td>
+                    <td>{{ result['entities'][1]['relevance'] }}</td>
+                    <td>{{ result['entities'][1]['text'] }}</td>
+                </tr>
+
+                <tr>
+                    <td>Palavra-Chave</td>
+                    <td>{{ result['keywords'][0]['relevance'] }}</td>
+                    <td>{{ result['keywords'][0]['text'] }}</td>
+                </tr>
+
+                <tr>
+                    <td>Palavra-Chave</td>
+                    <td>{{ result['keywords'][1]['relevance'] }}</td>
+                    <td>{{ result['keywords'][1]['text'] }}</td>
+                </tr>
+
+                <tr>
+                    <td>Categoria</td>
+                    <td>{{ result['categories'][0]['score'] }}</td>
+                    <td>{{ result['categories'][0]['label'] }}</td>
                 </tr>
                 <tr>
                     <td>Categoria</td>
-                    <td>Item</td>
-                    <td>Home and Garden</td>
+                    <td>{{ result['categories'][1]['score'] }}</td>
+                    <td>{{ result['categories'][1]['label'] }}</td>
                 </tr>
+
             </div>
         </div>
     </section>
