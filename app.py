@@ -24,26 +24,24 @@ def allowed_file(filename):
 @app.route('/analyze', methods=['GET', 'POST'])
 def analyze():
   filename = ""
-  # if request.method == 'POST':
-  #   # check if the post request has the file part
-  #   if 'file' not in request.files:
-  #     flash('No file part')
-  #     return redirect(request.url)
-  #   file = request.files['file']
-  #   # if user does not select file, browser also
-  #   # submit a empty part without filename
-  #   if file.filename == '':
-  #     flash('No selected file')
-  #     return redirect(request.url)
-  #   if file and allowed_file(file.filename):
-  #     filename = secure_filename(file.filename)
-  #     file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+  if request.method == 'POST':
 
-  result = insights(text_extractor('files/Edital insight.pdf'))
-  # result = insights(text_extractor(os.path.join(app.config['UPLOAD_FOLDER'], filename)))
+    if 'file' not in request.files:
+      flash('No file part')
+      return redirect(request.url)
 
+    file = request.files['file']
+
+    if file.filename == '':
+      flash('No selected file')
+      return redirect(request.url)
+
+    if file and allowed_file(file.filename):
+      filename = secure_filename(file.filename)
+      file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+
+  result = insights(text_extractor(os.path.join(app.config['UPLOAD_FOLDER'], filename)))
   return render_template('results.html', result=result)
-  # return json.dumps(result)
 
 
 @app.route('/')
